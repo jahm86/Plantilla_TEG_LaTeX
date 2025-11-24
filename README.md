@@ -37,7 +37,7 @@ Este comando buscará automáticamente todos los archivos fuente, ejecutará las
 
 El proyecto incluye la configuración para el complemento **"LaTeX Workshop"**.
 
-1.  **Instalación:** Instala el complemento **`LaTeX Workshop`** (de **Japan T**).
+1.  **Instalación:** Instala el complemento **`LaTeX Workshop`** (de **James Yu**).
 2.  **Configuración de Salida:** El archivo `.vscode/settings.json` ya configura la extensión para:
     * Usar `latexmk` como herramienta de compilación por defecto.
     * Dirigir todos los archivos de salida (PDF, log, aux) al directorio **`build/`**.
