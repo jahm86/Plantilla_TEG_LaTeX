@@ -1,0 +1,81 @@
+\thispagestyle{empty} % Asegura que no haya números de página ni encabezados en la portada.
+
+
+% =========================================================
+% 1. MEMBRETE INSTITUCIONAL (LOGO Y TEXTO OFICIAL)
+% =========================================================
+\begin{minipage}{0.5cm}
+    \centering
+    \includegraphics[width=0.5cm,trim= 3cm 1cm 0.7cm 1cm]{imgs/logo_unefa.png}
+\end{minipage}
+\hfill
+\begin{minipage}{13.5cm}
+    \begin{singlespace}
+        \centering
+        \textbf{REPÚBLICA BOLIVARIANA DE VENEZUELA}\\
+        \textbf{MINISTERIO DEL PODER POPULAR PARA LA DEFENSA}\\
+        \textbf{UNIVERSIDAD NACIONAL EXPERIMENTAL POLITÉCNICA}
+        \textbf{DE LA FUERZA ARMADA NACIONAL BOLIVARIANA}\\
+        \textbf{\unefaNucleo}\\ % Extraído de datos.tex
+        % =========================================================
+        % 2. UNIDAD Y CARRERA
+        % =========================================================
+        \ifdefined\unefaUnidad
+            \textbf{\unefaUnidad}\\ % Extraído de datos.tex
+        \fi
+        \textbf{CARRERA: \MakeUppercase{\carrera}} % Extraído de datos.tex
+    \end{singlespace}
+\end{minipage}
+
+
+\vfill
+
+% CUIDAD Y FECHA
+\begin{flushright}
+    \cuidadPresentacion, \diaPresentacion/\MesANumerico{\mesNumPresentacion}/\anoPresentacion.
+\end{flushright}
+
+\vfill
+
+% 1. TÍTULO CENTRADO
+\begin{center}
+    \textbf{APROBACIÓN DEL TRABAJO DE LICENCIATURA/INGENIERÍA POR EL TUTOR(A)}
+\end{center}
+
+\ifdefined\datosSegAutorNombre
+    \newcommand{\autoresAprob}{los ciudadanos \textbf{\datosAutorNombre},
+    titular de la Cédula de Identidad No \textbf{\datosAutorCI}, y
+    \textbf{\datosSegAutorNombre}, titular de la Cédula de Identidad No
+    \textbf{\datosSegAutorCI}}
+\else
+    \newcommand{\autoresAprob}{el (la) ciudadano(a),
+    \textbf{\datosAutorNombre}, titular de la Cédula de Identidad No
+    \textbf{\datosAutorCI}}
+\fi
+
+% 2. TEXTO DEL PÁRRAFO JUSTIFICADO
+\begin{justify}
+    %hyphenpenalty=10000
+    Yo, \textbf{\datosTutorNombre}, titular de la Cédula de Identidad No
+    \textbf{\datosTutorCI}, en mi condición de Tutor(a), donde se enmarca
+    el Trabajo de Licenciatura/Ingeniería, titulado: \textbf{\datosTitulo}
+    presentado por \autoresAprob, ha sido leído y se considera que ha
+    cumplido con los requisitos exigidos por esta Universidad y reúne los
+    méritos suficientes para ser sometido a la evaluación por parte del
+    jurado examinador que se designe.
+\end{justify}
+
+\vfill
+
+\begin{flushleft}
+    \lugarPresentacion \- - \fechaPresentacion
+\end{flushleft}
+
+\vspace{1cm}
+
+\begin{minipage}{0.5\textwidth}
+\centering
+\rule{6cm}{0.4pt}\\ % Línea para la firma
+\textbf{Tutor(a):} \textbf{\datosTutorNombre}\\
+\textbf{C.I.: \datosTutorCI}
+\end{minipage}

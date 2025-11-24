@@ -1,0 +1,97 @@
+\thispagestyle{empty} % Asegura que no haya números de página ni encabezados en la portada.
+
+
+% =========================================================
+% 1. MEMBRETE INSTITUCIONAL (LOGO Y TEXTO OFICIAL)
+% =========================================================
+\begin{minipage}{0.5cm}
+    \centering
+    \includegraphics[width=0.5cm,trim= 3cm 1cm 0.7cm 1cm]{imgs/logo_unefa.png}
+\end{minipage}
+\hfill
+\begin{minipage}{13.5cm}
+    \begin{singlespace}
+        \centering
+        \textbf{REPÚBLICA BOLIVARIANA DE VENEZUELA}\\
+        \textbf{MINISTERIO DEL PODER POPULAR PARA LA DEFENSA}\\
+        \textbf{UNIVERSIDAD NACIONAL EXPERIMENTAL POLITÉCNICA}
+        \textbf{DE LA FUERZA ARMADA NACIONAL BOLIVARIANA}\\
+        \textbf{\unefaNucleo}\\ % Extraído de datos.tex
+        % =========================================================
+        % 2. UNIDAD Y CARRERA
+        % =========================================================
+        \ifdefined\unefaUnidad
+            \textbf{\unefaUnidad}\\ % Extraído de datos.tex
+        \fi
+        \textbf{CARRERA: \MakeUppercase{\carrera}} % Extraído de datos.tex
+    \end{singlespace}
+\end{minipage}
+
+% ESPACIO FLEXIBLE
+\vfill 
+
+\large
+\centering
+
+% =========================================================
+% 3. TÍTULO DEL TRABAJO
+% =========================================================
+\begin{singlespace}
+    \textbf{\MakeUppercase{\datosTitulo}} % Usa la variable de texto
+\end{singlespace}
+
+% ESPACIO FLEXIBLE
+\vfill 
+
+% =========================================================
+% 4. TIPO DE TRABAJO Y REQUISITO
+% =========================================================
+\begin{singlespace}
+    \textbf{\tipoTrabajo \- como requisito parcial para optar
+    al Título de la Carrera:\- \carrera}
+\end{singlespace}
+
+% ESPACIO FLEXIBLE
+\vfill 
+
+\normalsize
+
+% =========================================================
+% 5. TUTOR Y AUTOR/AUTORES (Sección de Firmas)
+% =========================================================
+
+% Columna izquierda - Tutor
+\begin{minipage}[t]{0.4\textwidth}
+\centering
+\textbf{Tutor(a):}\\
+\textbf{\MakeUppercase{\datosTutorTitulo \- \datosTutorNombre}}\\
+\textbf{C.I. \datosTutorCI} 
+\end{minipage}
+\hfill
+% Columna derecha - Autor(a)/Autores
+\begin{minipage}[t]{0.4\textwidth}
+\centering
+\etiquetaAutor \\ % Imprime "Autor(a):" o "Autores:"
+\textbf{\MakeUppercase{\datosAutoresTitulo \- \datosAutorNombre}}\\
+\textbf{C.I. \datosAutorCI} 
+
+% ----------------------------------------------------
+% INCLUSIÓN CONDICIONAL DEL SEGUNDO AUTOR:
+% ----------------------------------------------------
+\ifdefined\datosSegAutorNombre
+    \vspace{0.8cm} % Espacio de separación entre autores
+    \textbf{\MakeUppercase{\datosAutoresTitulo \- \datosSegAutorNombre}}\\
+    \textbf{C.I. \datosSegAutorCI}
+\fi
+% ----------------------------------------------------
+\end{minipage}
+
+% ESPACIO FLEXIBLE
+\vfill
+
+% =========================================================
+% 6. LUGAR Y FECHA
+% =========================================================
+\normalsize
+\textbf{\MakeUppercase{\lugarPresentacion}}\\
+\textbf{\MakeUppercase{\fechaPresentacion}} % Extraído de datos.tex

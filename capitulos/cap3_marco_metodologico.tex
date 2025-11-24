@@ -1,0 +1,88 @@
+% --- CAPÍTULO III: MARCO METODOLÓGICO ---
+\chapter{Marco Metodológico}
+\chaptermark{Capítulo III: Marco Metodológico}
+
+\section{Nivel y tipo de investigación}
+\lipsum[18]
+De acuerdo con los lineamientos metodológicos para trabajos de grado en Venezuela, es crucial establecer con claridad el nivel y tipo de investigación que sustentan el estudio \autocite{book:hernandez2014}.
+
+\section{Diseño de la investigación}
+\lipsum[19]
+El diseño de investigación adoptado es no experimental, transversal de alcance descriptivo, siguiendo los preceptos establecidos para este tipo de estudios en el área de ingeniería \parencite{book:hernandez2014}.
+
+\section{Población y muestra}
+\lipsum[20]
+La población estuvo conformada por 450 individuos. La selección de la muestra se realizó mediante un muestreo probabilístico, tal como se sugiere en los textos fundamentales de metodología.
+
+\section{Técnicas e instrumentos de recolección de datos}
+\lipsum[21]
+Para la recolección de los datos, se empleó la técnica de la encuesta y se utilizó el cuestionario como instrumento. Este instrumento fue validado por tres expertos en el área, siguiendo el proceso descrito por la \textcite{online:unefa2022}.
+
+\section{Técnicas de procesamiento y análisis de datos}
+\lipsum[22]
+Los datos cuantitativos obtenidos se procesaron utilizando el *Software Estadístico para Ciencias Sociales* (SPSS). El análisis se centró en estadísticas descriptivas y la aplicación de modelos estadísticos no paramétricos para la comparación de grupos \parencite{article:perez2020}.
+
+\section{Cronograma de Actividades}
+El cronograma de actividades se presenta a continuación, detallando la duración estimada de cada fase del proyecto en semanas, y se visualiza en la Tabla \ref{tab:gantt}. 
+% ¡IMPORTANTE! Asegúrese de que el texto de su sección ahora dice: 
+% "...se visualiza en la Tabla \ref{tab:gantt}." 
+% para que siempre se muestre el número correcto.
+
+\clearpage % Salta a la siguiente página antes de rotar
+
+\begin{landscape} % <-- INICIO DE LA PÁGINA HORIZONTAL
+\begin{table}[t] % Entorno de tabla que genera el número 3.X e indexa
+\centering
+% ------------------------------------------------
+% CAPTION & LABEL (SOLUCIÓN AL NÚMERO Y AL ÍNDICE)
+% ------------------------------------------------
+\caption{Cronograma de actividades del proyecto}
+\label{tab:gantt}
+\vspace{0.3cm} % Espacio entre el título y el gráfico
+
+\begin{ganttchart}[
+    % CONFIGURACIÓN GLOBAL
+    hgrid,
+    vgrid={*4{dotted}, *4{dotted}, *5{dotted}},
+    x unit=1.0cm, % Aprovechamos el ancho extra de la hoja horizontal
+    y unit chart=0.7cm,
+    % ESTILOS VISUALES
+    title/.style={fill=gray!30, font=\bfseries\normalsize},
+    title label font=\bfseries, 
+    bar/.style={fill=blue!40, draw=blue!60, rounded corners=2pt},
+    bar label font=\normalsize,
+    milestone/.style={fill=red!60, draw=red!70, rounded corners=2pt},
+    group/.style={draw=black, fill=gray!15},
+    link/.style={->, thick} 
+    ]{1}{13}
+    
+    % ESTRUCTURA DE TIEMPO
+    \gantttitle{Periodo de Ejecución (Semanas)}{13} \\
+    \gantttitle{Noviembre}{4}
+    \gantttitle{Diciembre}{4}
+    \gantttitle{Enero}{5} \\
+    \gantttitlelist{1,...,13}{1} \\
+    
+    % BARRAS DE ACTIVIDADES (Con nombres explícitos para el link)
+    \ganttbar[name=elem0]{Determinar requerimientos del sistema}{1}{4} \\
+    \ganttbar[name=elem1]{Elaborar diseño del sistema electrónico}{3}{7} \\
+    \ganttbar[name=elem2]{Realizar programas de aplicación}{5}{12} \\
+    \ganttbar[name=elem3]{Validación del sistema}{10}{13} \\
+    
+    % HITOS
+    \ganttmilestone{Requerimientos aprobados}{4} \\
+    \ganttmilestone{Diseño completado}{7} \\
+    \ganttmilestone{Programación terminada}{12} \\
+    \ganttmilestone{Validación exitosa}{13}
+    
+    % DEPENDENCIAS
+    \ganttlink{elem0}{elem1}
+    \ganttlink{elem1}{elem2}
+    \ganttlink{elem2}{elem3}
+    
+\end{ganttchart}
+
+\end{table}
+\end{landscape} % <-- FIN DE LA PÁGINA HORIZONTAL
+
+\clearpage % Regresa al modo vertical para el resto del documento

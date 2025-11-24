@@ -1,0 +1,37 @@
+% =================================================================
+% ARCHIVO DE ENLACE: ANEXOS Y APÉNDICES (anexos/lista_anexos.tex)
+% Contiene la estructura \chapter* y la llamada a los archivos de contenido.
+% =================================================================
+
+% --- ANEXOS ---
+% Los anexos suelen ser materiales creados por otros o datos brutos (fotos, permisos).
+\chapter*{ANEXOS}
+\addcontentsline{toc}{chapter}{ANEXOS}
+%\cleardoublepage % Agregar si se quiere una página nueva
+
+% Cargar los archivos de contenido de Anexos
+\input{anexos/anexo_a.tex} % ANEXO A: Memoria Fotográfica
+\cleardoublepage
+
+% Si tienes un Anexo B, lo añades aquí
+% \input{anexos/anexo_b.tex} % ANEXO B: Datos estadísticos brutos
+% \cleardoublepage
+
+% ... y así sucesivamente...
+
+
+% --- APÉNDICES ---
+% Los apéndices suelen ser materiales creados por el autor (cuestionarios, códigos, teoría, validaciones).
+\chapter*{APÉNDICES}
+\addcontentsline{toc}{chapter}{APÉNDICES}
+%\cleardoublepage % Agregar si se quiere una página nueva
+
+% Cargar los archivos de contenido de Apéndices
+\input{anexos/apendice_a.tex} % APÉNDICE A: Constancia de Validación
+\cleardoublepage
+
+% Si tienes un Apéndice B (ej. listado de código), lo añades aquí
+% \input{codigo/listado_a.tex} % APÉNDICE B: Listado de Código Fuente
+% \cleardoublepage
+
+% ... y así sucesivamente...
