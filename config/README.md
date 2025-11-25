@@ -13,7 +13,7 @@ Para personalizar el documento, simplemente edita el valor entre llaves `{...}` 
 | Variable | Descripción | Ejemplo |
 | :--- | :--- | :--- |
 | `\unefaNucleo` | Nombre del núcleo de la UNEFA. | `{NÚCLEO ARAGUA - SEDE MARACAY}` |
-| `\unefaUnidad` | (Opcional) Unidad Académica, si aplica. | `{\text{E.A.D. DE INVESTIGACIÓN}}` |
+| `\unefaUnidad` | (Opcional) Unidad Académica, si aplica. | `{E.A.D. DE INVESTIGACIÓN}` |
 | `\carrera` | Nombre completo de la carrera. | `{Ingeniería Electrónica}` |
 | `\tipoTrabajo` | Tipo de documento (Trabajo Especial de Grado, Tesis, etc.). | `{Trabajo Especial de Grado}` |
 | `\datosTitulo` | **Título completo** del proyecto. | `{Análisis de Fallas en Aistemas Embebidos Utilizando Redes Neuronales}` |
@@ -44,6 +44,29 @@ La fecha se usa en la portada, y el mes debe definirse como un número para aseg
 | `\mesNumPresentacion` | **MES** de la presentación (número: 1=Enero, 12=Diciembre). **¡Importante!** | `{11}` |
 | `\anoPresentacion` | Año de la presentación. | `{2025}` |
 
+### 4. Definición de Modos
+
+| Modo | Propósito | Contenido Incluido |
+| :---: | :--- | :--- |
+| **ATEG** | Anteproyecto (Modo por defecto). | Solo incluye Portada, Capítulos I, II, III, índices, referencias y glosario. Omite páginas preliminares adicionales, Capítulos IV en adelante, Anexos y Apéndices. |
+| **TEG** | Versión Final. | Incluye **TODO**: Contraportada, Aprobación, Dedicatoria, Agradecimientos, Resumen/Abstract, Capítulos IV+, Anexos y Apéndices. |
+
+#### Activación del Modo
+
+El cambio de modo se realiza manipulando el comando `\modoTEG`
+
+1.  Busca la línea de control:
+
+    ```latex
+    % \newcommand{\modoTEG}{}
+    ```
+
+2.  **Para Modo ATEG (Anteproyecto): Mantén la línea COMENTADA** (con el `%` al inicio).
+3.  **Para Modo TEG (Final): DESCOMENTA la línea** (elimina el `%` al inicio).
+
+    ```latex
+    \newcommand{\modoTEG}{}
+    ```
 ---
 
 **Notas:**

@@ -26,10 +26,6 @@
 % --- 3. Carga de Datos y Variables (con \input) ---
 % Aquí se cargan \title, \author, y los \newcommand para la portada/aprobación.
 \input{config/datos}
-% --- METADATOS ESTÁNDAR (Usan la variable) ---
-\date{\fechaPresentacion}
-\author{\datosAutorNombre}
-\title{\datosTitulo}
 % --- LÓGICA DE LA ETIQUETA ---
 % 1. Definimos una macro para el texto de la etiqueta de Autor
 % 2. Verificamos si el segundo autor está definido.
@@ -84,6 +80,11 @@
 % Redefinimos fechaPresentacion
 \newcommand{\fechaPresentacion}{\MesANombre{\mesNumPresentacion}, \anoPresentacion}
 
+% --- METADATOS ESTÁNDAR (Usan la variable) ---
+\date{\fechaPresentacion}
+\author{\datosAutorNombre}
+\title{\datosTitulo}
+
 % --- 4. CONFIGURACIÓN DEL FORMATO (UNEFA/TEG) ---
 
 % 4.1. CONFIGURACIÓN DE MÁRGENES Y PAPEL
@@ -123,9 +124,9 @@
   \blx@enddlblock%
 }
 
-% --- 6. CONFIGURACIÓN DE REFERENCIAS (¡ORDEN CORREGIDO AQUÍ!) ---
+% --- 6. CONFIGURACIÓN DE REFERENCIAS ---
 \usepackage[style=apa, sortcites=true, backend=biber]{biblatex} % 1. CARGAR EL PAQUETE
-\addbibresource{referencias.bib}                            % 2. LUEGO AGREGAR EL ARCHIVO
+\addbibresource{referencias.bib}                                % 2. LUEGO AGREGAR EL ARCHIVO
 
 % --- 7. ACTIVACIÓN DE HIPERVÍNCULOS (DEBE SER EL ÚLTIMO) ---
 \usepackage[
@@ -134,6 +135,17 @@
     bookmarksopen=false,
 ]{hyperref}
 
+% --- 8. LÓGICA CONDICIONAL DE MODO DE DOCUMENTO ---
+\newif\ifTEG % Define un nuevo condicional llamado \ifTEG
+
+% Verifica si el comando \modoTEG existe (definido en config/datos.tex)
+\ifdefined\modoTEG
+    \TEGtrue % Si está definido (descomentado), activa el modo TEG
+\else
+    \TEGfalse % Si no está definido (comentado), activa el modo ATEG
+\fi
+
+% A partir de aquí, usa \ifTEG para incluir contenido.
 
 
 
@@ -148,44 +160,50 @@
 % Portada y Contraportada (UNEFA Núcleo Anzoátegui separa estas páginas)
 \input{preliminares/portada}
 \cleardoublepage % Finaliza la página y asegura que el siguiente capítulo comience en página impar
-\input{preliminares/contraportada}
-\cleardoublepage
 
-% Aprobación del Tutor/Jurado (usa datos definidos en config/datos)
-\input{preliminares/aprobacion}
-\cleardoublepage
+% --- SECCIONES OPCIONALES PARA TEG (Contraportada, Aprobación, Dedicatoria, Agradecimientos) ---
+\ifTEG
+    \input{preliminares/contraportada}
+    \cleardoublepage
 
-% --- DEDICATORIA ---
-\begin{singlespace} % Aplica el interlineado 1.0
-    \chapter*{\centering DEDICATORIA}
-    \addcontentsline{toc}{chapter}{DEDICATORIA}
-    \thispagestyle{empty} % Opcional: Remueve encabezados/pies de página
-    \input{preliminares/dedicatoria} 
-\end{singlespace}
-\cleardoublepage % Salto de página doble para la estructura de la tesis
+    % Aprobación del Tutor/Jurado (usa datos definidos en config/datos)
+    \input{preliminares/aprobacion}
+    \cleardoublepage
 
-% --- AGRADECIMIENTOS ---
-\begin{singlespace} % Aplica el interlineado 1.0
-    \chapter*{\centering AGRADECIMIENTOS}
-    \addcontentsline{toc}{chapter}{AGRADECIMIENTOS}
-    \input{preliminares/agradecimientos}
-\end{singlespace}
-\cleardoublepage
+    % --- DEDICATORIA ---
+    \begin{singlespace} % Aplica el interlineado 1.0
+        \chapter*{\centering DEDICATORIA}
+        \addcontentsline{toc}{chapter}{DEDICATORIA}
+        \thispagestyle{empty} % Opcional: Remueve encabezados/pies de página
+        \input{preliminares/dedicatoria} 
+    \end{singlespace}
+    \cleardoublepage % Salto de página doble para la estructura de la tesis
 
-% --- RESUMEN ---
-\begin{singlespace} % Aplica el interlineado 1.0
-    \chapter*{\centering RESUMEN}
-    \addcontentsline{toc}{chapter}{RESUMEN}
-    \input{preliminares/resumen}
-\end{singlespace}
-\cleardoublepage
+    % --- AGRADECIMIENTOS ---
+    \begin{singlespace} % Aplica el interlineado 1.0
+        \chapter*{\centering AGRADECIMIENTOS}
+        \addcontentsline{toc}{chapter}{AGRADECIMIENTOS}
+        \input{preliminares/agradecimientos}
+    \end{singlespace}
+    \cleardoublepage
+
+    % --- RESUMEN ---
+    \begin{singlespace} % Aplica el interlineado 1.0
+        \chapter*{\centering RESUMEN}
+        \addcontentsline{toc}{chapter}{RESUMEN}
+        \input{preliminares/resumen}
+    \end{singlespace}
+    \cleardoublepage
+\fi
 
 % Índices/Listas
 \tableofcontents
-\cleardoublepage
-\listoffigures
-\listoftables
-\cleardoublepage
+\ifTEG
+    \cleardoublepage
+    \listoffigures
+    \listoftables
+    \cleardoublepage
+\fi
 
 
 % =================================================================
@@ -197,10 +215,12 @@
 \include{capitulos/cap1_el_problema} 
 \include{capitulos/cap2_marco_teorico}
 \include{capitulos/cap3_marco_metodologico}
-\include{capitulos/cap4_resultados}
-% Nota: La UNEFA Anzoátegui tiene el Capítulo IV como "Análisis e Interpretación de Resultados" [cite: 117]
-\include{capitulos/cap5_conclusiones} 
-% Nota: La UNEFA Anzoátegui tiene el Capítulo V como "Conclusión y Recomendación" [cite: 119]
+\ifTEG
+    \include{capitulos/cap4_resultados}
+    % Nota: La UNEFA Anzoátegui tiene el Capítulo IV como "Análisis e Interpretación de Resultados" [cite: 117]
+    \include{capitulos/cap5_conclusiones} 
+    % Nota: La UNEFA Anzoátegui tiene el Capítulo V como "Conclusión y Recomendación" [cite: 119]
+\fi
 
 % =================================================================
 % 3. MATERIALES DE REFERENCIA (\backmatter)
@@ -211,7 +231,9 @@
 \printbibliography[heading=bibintoc, title={REFERENCIAS BIBLIOGRÁFICAS}] % Se usa el título completo
 \cleardoublepage
 
-% Anexos y Apéndices (Se cargan desde el archivo de enlace)
-\include{anexos/lista_anexos}
+\ifTEG
+    % Anexos y Apéndices (Se cargan desde el archivo de enlace)
+    \include{anexos/lista_anexos}
+\fi
 
 \end{document}
