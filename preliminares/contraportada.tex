@@ -31,67 +31,68 @@
 \vfill 
 
 \large
-\centering
+\begin{center}
 
-% =========================================================
-% 3. TÍTULO DEL TRABAJO
-% =========================================================
-\begin{singlespace}
-    \textbf{\MakeUppercase{\datosTitulo}} % Usa la variable de texto
-\end{singlespace}
+    % =========================================================
+    % 3. TÍTULO DEL TRABAJO
+    % =========================================================
+    \begin{singlespace}
+        \textbf{\MakeUppercase{\datosTitulo}} % Usa la variable de texto
+    \end{singlespace}
 
-% ESPACIO FLEXIBLE
-\vfill 
+    % ESPACIO FLEXIBLE
+    \vfill
 
-% =========================================================
-% 4. TIPO DE TRABAJO Y REQUISITO
-% =========================================================
-\begin{singlespace}
-    \textbf{\tipoTrabajo \- como requisito parcial para optar
-    al Título de la Carrera:\- \carrera}
-\end{singlespace}
+    % =========================================================
+    % 4. TIPO DE TRABAJO Y REQUISITO
+    % =========================================================
+    \begin{singlespace}
+        \textbf{\tipoTrabajo \- como requisito parcial para optar
+        al Título de la Carrera:\- \carrera}
+    \end{singlespace}
 
-% ESPACIO FLEXIBLE
-\vfill 
+    % ESPACIO FLEXIBLE
+    \vfill
 
-\normalsize
+    \normalsize
 
-% =========================================================
-% 5. TUTOR Y AUTOR/AUTORES (Sección de Firmas)
-% =========================================================
+    % =========================================================
+    % 5. TUTOR Y AUTOR/AUTORES (Sección de Firmas)
+    % =========================================================
 
-% Columna izquierda - Tutor
-\begin{minipage}[t]{0.4\textwidth}
-\centering
-\textbf{Tutor(a):}\\
-\textbf{\MakeUppercase{\datosTutorTitulo \- \datosTutorNombre}}\\
-\textbf{C.I. \datosTutorCI} 
-\end{minipage}
-\hfill
-% Columna derecha - Autor(a)/Autores
-\begin{minipage}[t]{0.4\textwidth}
-\centering
-\etiquetaAutor \\ % Imprime "Autor(a):" o "Autores:"
-\textbf{\MakeUppercase{\datosAutoresTitulo \- \datosAutorNombre}}\\
-\textbf{C.I. \datosAutorCI} 
+    % Columna izquierda - Tutor
+    \begin{minipage}[t]{0.4\textwidth}
+        \centering
+        \textbf{Tutor(a):}\\
+        \textbf{\MakeUppercase{\datosTutorTitulo \- \datosTutorNombre}}\\
+        \textbf{C.I. \datosTutorCI}
+    \end{minipage}
+    \hfill
+    % Columna derecha - Autor(a)/Autores
+    \begin{minipage}[t]{0.4\textwidth}
+        \centering
+        \etiquetaAutor \\ % Imprime "Autor(a):" o "Autores:"
+        \textbf{\MakeUppercase{\datosAutoresTitulo \- \datosAutorNombre}}\\
+        \textbf{C.I. \datosAutorCI}
 
-% ----------------------------------------------------
-% INCLUSIÓN CONDICIONAL DEL SEGUNDO AUTOR:
-% ----------------------------------------------------
-\ifdefined\datosSegAutorNombre
-    \vspace{0.8cm} % Espacio de separación entre autores
-    \textbf{\MakeUppercase{\datosAutoresTitulo \- \datosSegAutorNombre}}\\
-    \textbf{C.I. \datosSegAutorCI}
-\fi
-% ----------------------------------------------------
-\end{minipage}
+        % ----------------------------------------------------
+        % INCLUSIÓN CONDICIONAL DEL SEGUNDO AUTOR:
+        % ----------------------------------------------------
+        \ifdefined\datosSegAutorNombre
+            \vspace{0.8cm} % Espacio de separación entre autores
+            \textbf{\MakeUppercase{\datosAutoresTitulo \- \datosSegAutorNombre}}\\
+            \textbf{C.I. \datosSegAutorCI}
+        \fi
+        % ----------------------------------------------------
+    \end{minipage}
 
-% ESPACIO FLEXIBLE
-\vfill
+    % ESPACIO FLEXIBLE
+    \vfill
 
-% =========================================================
-% 6. LUGAR Y FECHA
-% =========================================================
-\normalsize
-\textbf{\MakeUppercase{\lugarPresentacion}}\\
-\textbf{\MakeUppercase{\fechaPresentacion}} % Extraído de datos.tex
+    % =========================================================
+    % 6. LUGAR Y FECHA
+    % =========================================================
+    \normalsize
+    \textbf{\MakeUppercase{\lugarPresentacion}}\\
+    \textbf{\MakeUppercase{\fechaPresentacion}} % Extraído de datos.tex
+\end{center}
