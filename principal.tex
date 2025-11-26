@@ -15,7 +15,7 @@
 \usepackage{geometry}  % A menudo necesario para un mejor manejo de márgenes en diagramas anchos
 \usepackage{setspace}  % Para el interlineado vertical (1.0, 1.5 o 2.0)
 \usepackage{fancyhdr}  % Para el manejo de las cabeceras y piés de página
-\usepackage{graphicx}  % Para insertar
+\usepackage{graphicx}  % Para insertar imágenes
 \usepackage{ragged2e}  % Para la justificación del texto
 \usepackage{pgfgantt}  % Para el manejo de diagramas de Gantt
 \usepackage{pdflscape} % Permite rotar una sola página, útil para figuras grandes com el diagrama de Gantt
@@ -147,6 +147,11 @@
 
 % A partir de aquí, usa \ifTEG para incluir contenido.
 
+% --- 9. FABRICACIÓN DE GLOSARIOS ---
+\usepackage[nonumberlist,toc]{glossaries}     % Genera glosarios
+\makeglossaries
+% Incluir página de glosario
+\input{glosario}
 
 
 \begin{document}
@@ -229,6 +234,14 @@
 
 % Referencias
 \printbibliography[heading=bibintoc, title={REFERENCIAS BIBLIOGRÁFICAS}] % Se usa el título completo
+\cleardoublepage
+
+% Glosario
+\def\@glosname{Glosario de Términos}
+\printglossary[
+    title={\MakeUppercase{\@glosname}},
+    toctitle={\MakeUppercase{\@glosname}}
+]
 \cleardoublepage
 
 \ifTEG

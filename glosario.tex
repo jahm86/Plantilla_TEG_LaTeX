@@ -1,0 +1,53 @@
+% =================================================================
+% ARCHIVO DE DEFINICIÓN DE GLOSARIO DE TÉRMINOS (glosario.tex)
+% =================================================================
+
+% Para añadir un término al glosario, usa el siguiente comando:
+% \newglossaryentry{etiqueta_corta}{propiedades}
+
+% ------------------------------------------------------------------------------------------
+% PROPIEDADES MÍNIMAS REQUERIDAS:
+% - {etiqueta_corta}: El ID interno para hacer referencia (ej. 'robot', 'latex').
+% - name={Nombre}: El nombre que aparecerá en el glosario (ej. 'Robot', 'Latex').
+%                  ¡Debe ir con la primera letra en mayúscula para mantener el formato UNEFA!
+% - description={...}: La definición completa del término.
+% ------------------------------------------------------------------------------------------
+
+% USO EN EL DOCUMENTO:
+% - Los términos SÓLO aparecerán en el glosario si son llamados al menos una vez en el cuerpo.
+% - \gls{etiqueta_corta}: Inserta el término en minúsculas (ej. robot).
+% - \Gls{etiqueta_corta}: Inserta el término con la primera letra en MAYÚSCULA (ej. Robot).
+% - \glspl{etiqueta_corta} / \Glspl{etiqueta_corta}: Versiones PLURALES.
+% ------------------------------------------------------------------------------------------
+
+% EJEMPLO:
+% \newglossaryentry{arduino}
+% {
+%     name={Arduino},
+%     description={Arduino es una tecnología de hardware de código abierto...}
+% }
+% 
+% Uso en el texto: "La placa de desarrollo es un \gls{arduino}"
+
+% Para más información, consulte info_glosario.md
+
+
+\newglossaryentry{latex}
+{
+    name=Latex,
+    description={Es un lenguaje de enmaquetado especialmente útil
+    para documentos científicos}
+}
+
+\newglossaryentry{maths}
+{
+    name=Matemáticas,
+    description={es lo que hacen los matemáticos}
+}
+
+\newglossaryentry{vacio}
+{
+    name=Vacío,
+    description={Término que nunca se empleó, y por lo tanto no debería
+    aparecer en el glosario}
+}
