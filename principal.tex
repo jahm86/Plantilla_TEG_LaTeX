@@ -153,6 +153,22 @@
 % Incluir página de glosario
 \input{glosario}
 
+% --- 10. Comandos para facilitar la escritura ---
+% Comando: \sectionToc
+% Descripción: Crea una sección sin numeración y la añade al TOC como una sección.
+% Parámetros: [1] Título completo de la sección (ej. ANEXO A: Memoria Fotográfica)
+\newcommand{\sectionToc}[1]{
+    \section*{#1}
+    \addcontentsline{toc}{section}{#1}
+}
+% Comando: \chapterToc
+% Descripción: Crea un capítulo sin numeración y lo añade al TOC como un capítulo.
+% Parámetros: [1] Título del capítulo (ej. ANEXOS)
+\newcommand{\chapterToc}[1]{
+    \chapter*{#1}
+    \addcontentsline{toc}{chapter}{#1}
+}
+
 
 \begin{document}
 % =================================================================
